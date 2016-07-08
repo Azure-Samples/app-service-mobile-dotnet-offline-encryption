@@ -1,0 +1,8 @@
+Common/libsqlite3iOS.a
+Common/sqlite3.c
+Common/sqlite3.def
+Common/sqlite3.h
+packages/
+Debug/
+.vs/TodoItemWithEncryptedLocalStore/v14/.suo
+sqlite3iOS/.sqlite3iOS.payload.desc
