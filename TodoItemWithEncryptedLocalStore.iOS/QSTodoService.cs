@@ -12,23 +12,22 @@ namespace TodoItemWithEncryptedLocalStore
     public class QSTodoService 
     {
         static QSTodoService instance = new QSTodoService ();
-
-        const string applicationURL = @"https://YourAzureMobileApp.azurewebsites.net";
+        
         const string localDbPath    = "testSee.db";
 
         private MobileServiceClient client;
-        private IMobileServiceSyncTable<ToDoItem> todoTable;
+        private IMobileServiceSyncTable<TodoItem> todoTable;
 
         private QSTodoService ()
         {
             CurrentPlatform.Init ();
-            SQLitePCL.CurrentPlatform.Init(); 
+            SQLitePCL.CurrentPlatform.Init();
 
             // Initialize the Mobile Service client with the Mobile App URL, Gateway URL and key
-            client = new MobileServiceClient (applicationURL);
+            client = Utils.MobileService;
 
             // Create an MSTable instance to allow us to work with the TodoItem table
-            todoTable = client.GetSyncTable <ToDoItem> ();
+            todoTable = client.GetSyncTable <TodoItem> ();
         }
 
         public static QSTodoService DefaultService {
@@ -37,17 +36,16 @@ namespace TodoItemWithEncryptedLocalStore
             }
         }
 
-        public List<ToDoItem> Items { get; private set;}
+        public List<TodoItem> Items { get; private set;}
 
         public async Task InitializeStoreAsync()
         {
             var localDbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "testNoSee.db");
             //DO NOT HARDCODE PASSWORD IN YOUR APPLICATION
-            //Password in Hello converted to hexadecimal string
-            string testDb = localDbPath + "?hexkey=480065006C006C006F00";
+            string testDb = localDbPath + "?hexkey="+Utils.ToHexString("Hello");
 
             var store = new MobileServiceSQLiteStore(testDb);
-            store.DefineTable<ToDoItem>();
+            store.DefineTable<TodoItem>();
 
             // Uses the default conflict handler, which fails on conflict
             // To use a different conflict handler, pass a parameter to InitializeAsync. For more details, see http://go.microsoft.com/fwlink/?LinkId=521416
@@ -71,7 +69,7 @@ namespace TodoItemWithEncryptedLocalStore
             }
         }
 
-        public async Task<List<ToDoItem>> RefreshDataAsync ()
+        public async Task<List<TodoItem>> RefreshDataAsync ()
         {
             try {
                 // update the local store
@@ -91,7 +89,7 @@ namespace TodoItemWithEncryptedLocalStore
             return Items;
         }
 
-        public async Task InsertTodoItemAsync (ToDoItem todoItem)
+        public async Task InsertTodoItemAsync (TodoItem todoItem)
         {
             try {                
                 await todoTable.InsertAsync (todoItem); // Insert a new TodoItem into the local database. 
@@ -104,7 +102,7 @@ namespace TodoItemWithEncryptedLocalStore
             }
         }
 
-        public async Task CompleteItemAsync (ToDoItem item)
+        public async Task CompleteItemAsync (TodoItem item)
         {
             try {
                 item.Complete = true; 

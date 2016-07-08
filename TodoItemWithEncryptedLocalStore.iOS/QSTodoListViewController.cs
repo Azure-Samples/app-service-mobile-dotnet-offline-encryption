@@ -111,7 +111,7 @@ namespace TodoItemWithEncryptedLocalStore
 			if (string.IsNullOrWhiteSpace (itemText.Text))
 				return;
 
-			var newItem = new ToDoItem {
+			var newItem = new TodoItem {
 				Text = itemText.Text, 
 				Complete = false
 			};

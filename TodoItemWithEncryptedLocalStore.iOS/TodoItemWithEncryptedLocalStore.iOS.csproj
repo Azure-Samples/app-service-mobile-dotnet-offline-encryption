@@ -127,6 +127,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Common\TodoItem.cs">
+      <Link>TodoItem.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Utils.cs">
+      <Link>Utils.cs</Link>
+    </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="QSTodoListViewController.cs" />
@@ -134,7 +140,6 @@
       <DependentUpon>QSTodoListViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="QSTodoService.cs" />
-    <Compile Include="ToDoItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard_iPhone.storyboard" />
