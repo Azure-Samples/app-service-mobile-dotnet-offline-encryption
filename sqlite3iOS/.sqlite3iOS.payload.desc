@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<payload>
-  <file path="E:\SQLCipher\TodoItemWithEncryptedLocalStore\sqlite3iOS\x86\Debug\sqlite3iOS.xcodeproj\project.pbxproj" changed="2016-07-08T11:25:49.612393-07:00" />
-  <file path="E:\SQLCipher\TodoItemWithEncryptedLocalStore\sqlite3iOS\ARM\Debug\sqlite3iOS.xcodeproj\project.pbxproj" changed="2016-07-08T08:49:35.5727516-07:00" />
-  <file path="E:\SQLCipher\TodoItemWithEncryptedLocalStore\sqlite3iOS\\sqlite3iOS.h" changed="2016-07-08T08:45:32.1119305-07:00" />
-  <file path="E:\SQLCipher\TodoItemWithEncryptedLocalStore\sqlite3iOS\..\Common\see-sqlite3.c" changed="2016-07-05T10:09:52.5425829-07:00" />
-  <file path="E:\SQLCipher\TodoItemWithEncryptedLocalStore\sqlite3iOS\..\Common\sqlite3.h" changed="2016-05-18T13:50:52.3705625-07:00" />
-</payload>
