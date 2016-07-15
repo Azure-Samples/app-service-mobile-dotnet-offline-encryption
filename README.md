@@ -21,8 +21,8 @@ To build this sample
 * [Obtain code for building sqlite for Android](https://www.sqlite.org/android/doc/trunk/www/install.wiki#obtaincode)
     
 ### Build sqlite3 dll with SEE 
-> Note: This sample demostrates one of the ways to build sqlite3. Detailed instructions at
-> [How to compile sqlite](https://www.sqlite.org/howtocompile.html), [How to compile and use SEE](https://www.sqlite.org/see/doc/trunk/www/readme.wiki)
+> Note: This sample demostrates one of the ways to build sqlite3. You can find complete instructions at: [How to compile and use SEE](https://www.sqlite.org/see/doc/trunk/www/readme.wiki)
+
 * Append of the contents of see.c file to the end of the sqlite3.c file. Save the file as sqlite3.c
 * Copy following files into Common folder
       * sqlite3.c with SEE code
